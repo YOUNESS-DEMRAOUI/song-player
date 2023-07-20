@@ -54,7 +54,9 @@ const TopPlay = () => {
 
   const divRef = useRef();
 
-  const topPlays = data?.tracks.slice(0, 5);
+  const topPlays = data?.tracks
+    .filter((song) => song?.artists && song?.hub?.actions)
+    .slice(0, 5);
   const handlePauseClick = () => {
     dispatch(playPause(false));
   };
