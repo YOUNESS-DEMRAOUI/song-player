@@ -17,7 +17,6 @@ const Search = () => {
 
   const songs = data?.tracks?.hits?.map((song) => song.track);
   const artists = data?.artists?.hits?.map((artist) => artist.artist);
-  console.log(artists);
 
   return (
     <div className="flex flex-col">
