@@ -7,7 +7,14 @@ export const uploadSongsApi = createApi({
   }),
   endpoints: (builder) => ({
     getUploadedSongs: builder.query({ query: () => "/api/v2/upload" }),
+    addSong: builder.mutation({
+      query: (song) => ({
+        url: "/api/v2/upload",
+        method: "POST",
+        body: song,
+      }),
+    }),
   }),
 });
 
-export const { useGetUploadedSongsQuery } = uploadSongsApi;
+export const { useGetUploadedSongsQuery, useAddSongMutation } = uploadSongsApi;
