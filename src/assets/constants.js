@@ -1,3 +1,4 @@
+import { AiFillFolder } from 'react-icons/ai';
 import { HiOutlineHashtag, HiOutlineHome, HiOutlinePhotograph, HiOutlineUserGroup } from 'react-icons/hi';
 
 export const genres = [
@@ -22,5 +23,5 @@ export const links = [
   { name: 'Around You', to: '/around-you', icon: HiOutlinePhotograph },
   { name: 'Top Artists', to: '/top-artists', icon: HiOutlineUserGroup },
   { name: 'Top Charts', to: '/top-charts', icon: HiOutlineHashtag },
-  { name: 'Local Songs', to: '/local', icon: HiOutlineHashtag },
+  { name: 'Local Songs', to: '/local', icon: AiFillFolder },
 ];

@@ -5,14 +5,19 @@ export const uploadSongsApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:4000",
   }),
+  tagTypes: ["Songs"],
   endpoints: (builder) => ({
-    getUploadedSongs: builder.query({ query: () => "/api/v2/upload" }),
+    getUploadedSongs: builder.query({
+      query: () => "/api/v2/upload",
+      providesTags: ["Songs"],
+    }),
     addSong: builder.mutation({
       query: (song) => ({
         url: "/api/v2/upload",
         method: "POST",
         body: song,
       }),
+      invalidatesTags: ["Songs"],
     }),
   }),
 });
