@@ -10,6 +10,7 @@ import {
   Search,
   SongDetails,
   TopCharts,
+  LocalSongs,
 } from "./pages";
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
               <Route path="/artists/:id" element={<ArtistDetails />} />
               <Route path="/songs/:songid" element={<SongDetails />} />
               <Route path="/search/:searchTerm" element={<Search />} />
+              <Route path="/local" element={<LocalSongs />} />
             </Routes>
           </div>
           <div className="relative top-0 h-fit">
