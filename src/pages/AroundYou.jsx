@@ -14,7 +14,7 @@ const AroundYou = () => {
     const request = async () => {
       try {
         const response = await axios.get(
-          "https://api.getgeoapi.com/v2/ip/check?api_key=888a4b18e8b4451f236e02bc4a5c3c95783a95ac"
+          `https://api.getgeoapi.com/v2/ip/check?api_key=${import.meta.env.VITE_GEO_API_KEY}`
         );
         setCountry(response?.data?.country);
         setLoading(false);
