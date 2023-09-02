@@ -25,24 +25,24 @@ const Search = () => {
       </h2>
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
         {artists.length > 0 &&
-          artists.map((artist) =>
-            artist?.avatar ? (
-              <div
-                className="flex flex-col w-[250px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer"
-                onClick={() => navigate(`/artists/${artist.adamid}`)}
-              >
-                <img
-                  src={artist.avatar}
-                  alt="artist"
-                  className="w-full h-56 rounded-lg"
-                />
-                <p className="mt-4 font-semibold text-lg text-white truncate">
-                  {artist.name}
-                </p>
-              </div>
-            ) : (
-              ""
-            )
+          artists.map(
+            (artist) =>
+              artist?.avatar && (
+                <div
+                  className="flex flex-col w-[250px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer"
+                  onClick={() => navigate(`/artists/${artist.adamid}`)}
+                  key={artist.adamid}
+                >
+                  <img
+                    src={artist.avatar}
+                    alt="artist"
+                    className="w-full h-56 rounded-lg"
+                  />
+                  <p className="mt-4 font-semibold text-lg text-white truncate">
+                    {artist.name}
+                  </p>
+                </div>
+              )
           )}
         {songs.length > 0 &&
           songs.map((song, i) => (
