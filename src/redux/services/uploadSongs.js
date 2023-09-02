@@ -19,6 +19,13 @@ export const uploadSongsApi = createApi({
       }),
       invalidatesTags: ["Songs"],
     }),
+    removeSong: builder.mutation({
+      query: (song) => ({
+        url: `/api/v2/upload/${song}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Songs"],
+    }),
   }),
 });
 
