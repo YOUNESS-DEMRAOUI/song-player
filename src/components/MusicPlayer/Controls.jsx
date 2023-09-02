@@ -18,12 +18,12 @@ const Controls = ({
   handlePrevSong,
   handleNextSong,
 }) => (
-  <div className="flex items-center justify-around md:w-36 lg:w-52 2xl:w-80">
+  <div className="flex items-center justify-around md:w-36 lg:w-52 2xl:w-80 w-full px-10 sm:px-0 ">
     <BsArrowRepeat
       size={20}
       color={repeat ? "red" : "white"}
       onClick={() => setRepeat((prev) => !prev)}
-      className="hidden sm:block cursor-pointer"
+      className="block cursor-pointer"
     />
     {currentSongs?.length && (
       <MdSkipPrevious
@@ -60,7 +60,7 @@ const Controls = ({
       size={20}
       color={shuffle ? "red" : "white"}
       onClick={() => setShuffle((prev) => !prev)}
-      className="hidden sm:block cursor-pointer"
+      className="sm:block cursor-pointer"
     />
   </div>
 );

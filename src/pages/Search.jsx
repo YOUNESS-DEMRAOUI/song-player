@@ -15,8 +15,8 @@ const Search = () => {
 
   if (error) return <Error />;
 
-  const songs = data?.tracks?.hits?.map((song) => song.track);
-  const artists = data?.artists?.hits?.map((artist) => artist.artist);
+  const songs = data?.tracks?.hits?.map((song) => song.track) || [];
+  const artists = data?.artists?.hits?.map((artist) => artist.artist) || [];
 
   return (
     <div className="flex flex-col">
@@ -24,35 +24,37 @@ const Search = () => {
         Showing results for <span className="font-black">{searchTerm}</span>
       </h2>
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
-        {artists.map((artist) =>
-          artist?.avatar ? (
-            <div
-              className="flex flex-col w-[250px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer"
-              onClick={() => navigate(`/artists/${artist.adamid}`)}
-            >
-              <img
-                src={artist.avatar}
-                alt="artist"
-                className="w-full h-56 rounded-lg"
-              />
-              <p className="mt-4 font-semibold text-lg text-white truncate">
-                {artist.name}
-              </p>
-            </div>
-          ) : (
-            ""
-          )
-        )}
-        {songs.map((song, i) => (
-          <SongCard
-            key={song.key}
-            song={song}
-            i={i}
-            isPlaying={isPlaying}
-            activeSong={activeSong}
-            data={data.tracks}
-          />
-        ))}
+        {artists.length > 0 &&
+          artists.map((artist) =>
+            artist?.avatar ? (
+              <div
+                className="flex flex-col w-[250px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer"
+                onClick={() => navigate(`/artists/${artist.adamid}`)}
+              >
+                <img
+                  src={artist.avatar}
+                  alt="artist"
+                  className="w-full h-56 rounded-lg"
+                />
+                <p className="mt-4 font-semibold text-lg text-white truncate">
+                  {artist.name}
+                </p>
+              </div>
+            ) : (
+              ""
+            )
+          )}
+        {songs.length > 0 &&
+          songs.map((song, i) => (
+            <SongCard
+              key={song.key}
+              song={song}
+              i={i}
+              isPlaying={isPlaying}
+              activeSong={activeSong}
+              data={data.tracks}
+            />
+          ))}
       </div>
     </div>
   );
