@@ -8,7 +8,6 @@ const Searchbar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSearchTerm("");
     navigate(`/search/${searchTerm}`);
   };
   return (
