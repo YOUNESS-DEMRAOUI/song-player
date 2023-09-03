@@ -25,7 +25,7 @@ const Controls = ({
       onClick={() => setRepeat((prev) => !prev)}
       className="block cursor-pointer"
     />
-    {currentSongs?.length && (
+    {currentSongs?.length > 0 && (
       <MdSkipPrevious
         size={30}
         color="#FFF"
@@ -48,7 +48,7 @@ const Controls = ({
         className="cursor-pointer"
       />
     )}
-    {currentSongs?.length && (
+    {currentSongs?.length > 0 && (
       <MdSkipNext
         size={30}
         color="#FFF"

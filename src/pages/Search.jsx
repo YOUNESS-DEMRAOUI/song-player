@@ -52,7 +52,7 @@ const Search = () => {
               i={i}
               isPlaying={isPlaying}
               activeSong={activeSong}
-              data={data.tracks}
+              data={data.tracks.hits}
             />
           ))}
       </div>

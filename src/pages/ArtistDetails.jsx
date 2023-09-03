@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { DetailsHeader, Error, Loader, RelatedSongs } from "../components";
 import { setActiveSong, playPause } from "../redux/features/playerSlice";
@@ -30,16 +30,25 @@ const ArtistDetails = () => {
 
   return (
     <div className="flex flex-col">
-      <DetailsHeader artistId={artistId} artistData={artistData.resources} />
+      {artistData.data.length > 0 ? (
+        <div>
+          <DetailsHeader
+            artistId={artistId}
+            artistData={artistData.resources}
+          />
 
-      <RelatedSongs
-        data={Object.values(artistData?.resources?.songs)}
-        artistId={artistId}
-        isPlaying={isPlaying}
-        activeSong={activeSong}
-        handlePauseClick={handlePauseClick}
-        handlePlayClick={handlePlayClick}
-      />
+          <RelatedSongs
+            data={Object.values(artistData?.resources?.songs)}
+            artistId={artistId}
+            isPlaying={isPlaying}
+            activeSong={activeSong}
+            handlePauseClick={handlePauseClick}
+            handlePlayClick={handlePlayClick}
+          />
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };
