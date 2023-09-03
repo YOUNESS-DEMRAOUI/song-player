@@ -47,7 +47,7 @@ const ArtistDetails = () => {
           />
         </div>
       ) : (
-        <div></div>
+        <div>Not Found</div>
       )}
     </div>
   );

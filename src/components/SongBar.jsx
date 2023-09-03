@@ -37,7 +37,9 @@ const SongBar = ({
             </Link>
           ) : (
             <p className="text-xl font-bold text-white">
-              <Link to={`/search/${song?.attributes?.name}`}>
+              <Link
+                to={`/search/${song?.attributes?.name} ${song?.attributes.artistName}`}
+              >
                 {song?.attributes?.name}
               </Link>
             </p>
