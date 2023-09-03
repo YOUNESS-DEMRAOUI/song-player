@@ -55,6 +55,11 @@ const Search = () => {
               data={data.tracks.hits}
             />
           ))}
+        {artists.length == 0 || songs.length == 0 ? (
+          <p className="font-bold text-2xl text-white text-left mb-10">No results found</p>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
