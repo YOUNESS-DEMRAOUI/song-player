@@ -1,5 +1,4 @@
-import axios from "axios";
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { useGetSongsBySearchQuery } from "../redux/services/shazamCore";
 import { Error, Loader, SongCard } from "../components";
@@ -55,8 +54,10 @@ const Search = () => {
               data={data.tracks.hits}
             />
           ))}
-        {artists.length == 0 || songs.length == 0 ? (
-          <p className="font-bold text-2xl text-white text-left mb-10">No results found</p>
+        {artists.length == 0 && songs.length == 0 ? (
+          <p className="font-bold text-2xl text-white text-left mb-10">
+            No results found
+          </p>
         ) : (
           ""
         )}
