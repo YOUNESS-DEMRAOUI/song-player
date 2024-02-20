@@ -59,9 +59,9 @@ const SongDetails = () => {
           </div>
           <RelatedSongs
             data={
-              data.tracks
-                ? data.tracks.filter((song) => song?.artists)
-                : data.tracks
+              data?.tracks
+                ? data?.tracks.filter((song) => song?.artists)
+                : data?.tracks || []
             }
             isPlaying={isPlaying}
             activeSong={activeSong}
